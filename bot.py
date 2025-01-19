@@ -21,7 +21,7 @@ chrome_options.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
 # URL for the grind spots
-URL = 'https://garmoth.com/grind-tracker/global'
+URL = 'REPLACE WITH YOUR OWN WEBSITE!'
 
 # Open the URL
 driver.get(URL)
