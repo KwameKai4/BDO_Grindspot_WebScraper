@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grindspotter!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #444444;
+        }
+        button {
+            background-color: #058d39;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #04350c;
+        }
+        pre {
+            margin-top: 20px;
+            padding: 10px;
+            background: #eee;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Grindspots by silver/hr</h1>
+    <button onclick="runBot()">Gather Info!</button>
+    <pre id="output"></pre>
+
+    <script>
+        // Call the backend to run the Python script
+        function runBot() {
+            document.getElementById('output').innerText = 'Gathering Information';
+            window.electronAPI.runPython();
+        }
+
+        // Receive the Python script output
+        window.electronAPI.onPythonOutput((output) => {
+            document.getElementById('output').innerText = output;
+        });
+    </script>
+</body>
+</html>
